@@ -86,3 +86,9 @@ class LoginSerializer(serializers.ModelSerializer):
 
     def failure_json_response(self):
         return {'status': 'UnAuthorized User'}
+
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ['url', 'username', 'email', 'groups']
